@@ -1,5 +1,17 @@
 SET SQL_BIG_SELECTS=1;
 
+DROP table if exists flag_name;
+
+Create table if not exists flag_name( 
+vlimpers INT, 
+dh_name VARCHAR(50), 
+naam  VARCHAR(50),
+cntl_name VARCHAR(50),
+f_easypay INT,
+f_organogram INT
+) ;
+
+INSERT INTO flag_name(
 Select distinct d.vlimpers, d.cntl_name as dh_name, e.naam, o.cntl_name
 , IF(d.cntl_name=e.naam,0,1) AS f_easypay
 , IF(d.cntl_name=o.cntl_name,0,1) as f_organogram
@@ -9,4 +21,5 @@ on d.vlimpers = e.vlimpers
 left join organogram o
 on d.vlimpers = o.vlimpers
 and o.status = 'Actief'
+)
 ;
