@@ -1,0 +1,12 @@
+SET SQL_BIG_SELECTS=1;
+
+Select distinct d.vlimpers, d.cntl_name as dh_name, e.naam, o.cntl_name
+, IF(d.cntl_name=e.naam,0,1) AS f_easypay
+, IF(d.cntl_name=o.cntl_name,0,1) as f_organogram
+from datahub d
+LEFT join easypay_20230602 e
+on d.vlimpers = e.vlimpers
+left join organogram o
+on d.vlimpers = o.vlimpers
+and o.status = 'Actief'
+;
