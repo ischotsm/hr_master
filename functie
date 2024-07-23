@@ -13,7 +13,7 @@ f_easypay INT,
 f_organogram INT
 ) ;
 
-INSERT INTO flag_afdeling(
+INSERT INTO flag_functie(
 Select distinct d.vlimpers, d.activity as dh_functie, e.cod_functie as ep_fun_cod, e.oms_functie as ep_oms_functie, o.FUNC_CODE as or_funccod, o.func_oms as or_funcoms
 , IF(d.activity=e.oms_functie,0,1) AS f_easypay
 , IF(d.activity=o.func_oms,0,1) as f_organogram
