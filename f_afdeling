@@ -6,7 +6,7 @@ Create table if not exists flag_afdeling(
 vlimpers INT, 
 dh_afdeling VARCHAR(50), 
 ep_afdeling  VARCHAR(50),
-ep_afd_cod VARCHAR(10), 
+ep_afd_cod VARCHAR(50), 
 or_afdeling VARCHAR(50),
 f_easypay INT,
 f_organogram INT
