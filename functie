@@ -6,9 +6,9 @@ Create table if not exists flag_functie(
 vlimpers INT, 
 dh_functie VARCHAR(50), 
 ep_fun_code VARCHAR(50), 
-ep_oms_functie  VARCHAR(50),
+ep_oms_functie  VARCHAR(150),
 or_funccod VARCHAR(50),
-or_funcoms VARCHAR(50),
+or_funcoms VARCHAR(150),
 f_easypay INT,
 f_organogram INT
 ) ;
