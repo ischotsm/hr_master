@@ -1,0 +1,24 @@
+SET SQL_BIG_SELECTS=1;
+
+DROP table if exists flag_afdeling;
+
+Create table if not exists flag_afdeling( 
+vlimpers INT, 
+dh_afdeling VARCHAR(50), 
+ep_afdeling  VARCHAR(50),
+ep_afd_cod INT, 
+or_afdeling VARCHAR(50),
+f_easypay INT,
+f_organogram INT
+) ;
+
+INSERT INTO flag_afdeling(
+Select distinct d.vlimpers, d.eenheid as dh_afdeling, e.cod_oms as ep_afd_cod, e.oms_afd as e.ep_afdeling, o.afdeling as or_afdeling
+from datahub d
+LEFT join easypay_20230602 e
+on d.vlimpers = e.vlimpers
+left join organogram o
+on d.vlimpers = o.vlimpers
+and o.status = 'Actief'
+)
+;
