@@ -14,6 +14,8 @@ f_organogram INT
 
 INSERT INTO flag_afdeling(
 Select distinct d.vlimpers, d.eenheid as dh_afdeling, e.cod_oms as ep_afd_cod, e.oms_afd as e.ep_afdeling, o.afdeling as or_afdeling
+, IF(d.dh_afdeling=e.oms_afd,0,1) AS f_easypay
+, IF(d.dh_afdeling=o.or_afdeling,0,1) as f_organogram
 from datahub d
 LEFT join easypay_20230602 e
 on d.vlimpers = e.vlimpers
